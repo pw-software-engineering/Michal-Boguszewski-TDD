@@ -14,4 +14,13 @@ public class StringCalculatorTests
 
         result.Should().Be(0);
     }
+
+    [Fact]
+    public void AddTest_InputIsSingleNumber_ReturnsInput()
+    {
+        int expected = 4;
+        var actual = calculator.Add(expected.ToString());
+
+        actual.Should().Be(expected);
+    }
 }
