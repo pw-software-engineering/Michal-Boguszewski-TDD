@@ -53,4 +53,15 @@ public class StringCalculatorTests
 
         actual.Should().Be(expected);
     }
+    
+    [Theory]
+    [InlineData("2\n3,4", 9)]
+    [InlineData("2,3\n4", 9)]
+    [InlineData("5\n3,4", 12)]
+    public void AddTest_InputIsThreeNumbersDividedByCommaOrNewLine_ReturnsTheirSum(string input, int expected)
+    {
+        var actual = calculator.Add(input);
+
+        actual.Should().Be(expected);
+    }
 }
