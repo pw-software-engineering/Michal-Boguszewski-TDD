@@ -58,4 +58,13 @@ public class StringCalculatorTests
 
         actual.Should().Be(expected);
     }
+
+    [Theory]
+    [InlineData("-1\n2")]
+    public void AddTest_InputContainsNegativeNumber_ThrowArgumentOutOfRangeException(string input)
+    {
+        var func = () => calculator.Add(input);
+
+        func.Should().Throw<ArgumentOutOfRangeException>();
+    }
 }
