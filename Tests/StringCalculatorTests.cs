@@ -27,4 +27,17 @@ public class StringCalculatorTests
 
         actual.Should().Be(expected);
     }
+
+    [Theory]
+    [InlineData("2,3", 5)]
+    [InlineData("-2,-3", -5)]
+    [InlineData("0,3", 3)]
+    [InlineData("-123,124", 1)]
+    [InlineData("-123,123", 0)]
+    public void AddTest_InputIsTwoNumbersDividedByComma_ReturnsTheirSum(string input, int expected)
+    {
+        var actual = calculator.Add(input);
+
+        actual.Should().Be(expected);
+    }
 }
