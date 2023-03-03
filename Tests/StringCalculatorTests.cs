@@ -40,4 +40,17 @@ public class StringCalculatorTests
 
         actual.Should().Be(expected);
     }
+    
+    [Theory]
+    [InlineData("2\n3", 5)]
+    [InlineData("-2\n-3", -5)]
+    [InlineData("0\n3", 3)]
+    [InlineData("-123\n124", 1)]
+    [InlineData("-123\n123", 0)]
+    public void AddTest_InputIsTwoNumbersDividedByNewLina_ReturnsTheirSum(string input, int expected)
+    {
+        var actual = calculator.Add(input);
+
+        actual.Should().Be(expected);
+    }
 }
