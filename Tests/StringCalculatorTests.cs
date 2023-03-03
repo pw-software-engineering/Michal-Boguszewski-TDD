@@ -15,10 +15,14 @@ public class StringCalculatorTests
         result.Should().Be(0);
     }
 
-    [Fact]
-    public void AddTest_InputIsSingleNumber_ReturnsInput()
+    [Theory]
+    [InlineData(4)]
+    [InlineData(-4)]
+    [InlineData(123)]
+    [InlineData(int.MaxValue)]
+    [InlineData(int.MinValue)]
+    public void AddTest_InputIsSingleNumber_ReturnsInput(int expected)
     {
-        int expected = 4;
         var actual = calculator.Add(expected.ToString());
 
         actual.Should().Be(expected);
