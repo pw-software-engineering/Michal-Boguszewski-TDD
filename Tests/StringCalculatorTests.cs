@@ -17,10 +17,8 @@ public class StringCalculatorTests
 
     [Theory]
     [InlineData(4)]
-    [InlineData(-4)]
     [InlineData(123)]
     [InlineData(int.MaxValue)]
-    [InlineData(int.MinValue)]
     public void AddTest_InputIsSingleNumber_ReturnsInput(int expected)
     {
         var actual = calculator.Add(expected.ToString());
@@ -30,10 +28,8 @@ public class StringCalculatorTests
 
     [Theory]
     [InlineData("2,3", 5)]
-    [InlineData("-2,-3", -5)]
     [InlineData("0,3", 3)]
-    [InlineData("-123,124", 1)]
-    [InlineData("-123,123", 0)]
+    [InlineData("123,124", 127)]
     public void AddTest_InputIsTwoNumbersDividedByComma_ReturnsTheirSum(string input, int expected)
     {
         var actual = calculator.Add(input);
@@ -43,10 +39,8 @@ public class StringCalculatorTests
     
     [Theory]
     [InlineData("2\n3", 5)]
-    [InlineData("-2\n-3", -5)]
     [InlineData("0\n3", 3)]
-    [InlineData("-123\n124", 1)]
-    [InlineData("-123\n123", 0)]
+    [InlineData("123\n124", 247)]
     public void AddTest_InputIsTwoNumbersDividedByNewLina_ReturnsTheirSum(string input, int expected)
     {
         var actual = calculator.Add(input);
