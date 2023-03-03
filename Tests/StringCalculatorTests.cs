@@ -67,4 +67,13 @@ public class StringCalculatorTests
 
         func.Should().Throw<ArgumentOutOfRangeException>();
     }
+
+    [Theory]
+    [InlineData("1\n2,1001", 3)]
+    public void AddTest_InputContainsNumbersGreaterThan1000_IgnoreThoseNumbers(string input, int expected)
+    {
+        var actual = calculator.Add(input);
+
+        actual.Should().Be(expected);
+    }
 }
