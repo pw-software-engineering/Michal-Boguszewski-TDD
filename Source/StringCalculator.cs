@@ -10,6 +10,12 @@ public class StringCalculator
         if (numbers.Contains('-'))
             throw new ArgumentOutOfRangeException();
 
-        return numbers.Split(',', '\n').Select(int.Parse).Sum();
+        return numbers.Split(',', '\n').Select(Parse).Sum();
+    }
+
+    private int Parse(string number)
+    {
+        var result = int.Parse(number);
+        return result > 1000 ? 0 : result;
     }
 }
