@@ -7,6 +7,6 @@ public class StringCalculator
         if(String.IsNullOrWhiteSpace(numbers))
             return 0;
 
-        return numbers.Split(',').Select(int.Parse).Sum();
+        return numbers.Split(',', '\n').Select(int.Parse).Sum();
     }
 }
